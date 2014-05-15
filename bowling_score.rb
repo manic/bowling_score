@@ -7,12 +7,10 @@ class BowlingScore
     while rows.count > 0 || @frames.count < 10
       if @frames.count == 9
         @frames << [ rows.shift.to_i, rows.shift.to_i, rows.shift.to_i ]
+      elsif rows[0].to_i < 10
+        @frames << [ rows.shift.to_i, rows.shift.to_i ]
       else
-        if rows[0].to_i < 10
-          @frames << [ rows.shift.to_i, rows.shift.to_i ]
-        else
-          @frames << [ rows.shift.to_i ]
-        end
+        @frames << [ rows.shift.to_i ]
       end
     end
   end
